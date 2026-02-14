@@ -47,6 +47,11 @@ const demoStore = {
 // PUBLIC ROUTES
 // ========================
 
+// Serve static files from the React app
+const path = require('path')
+app.use(express.static(path.join(__dirname, '../dist')))
+
+
 // Health check
 app.get('/api/health', (req, res) => {
     res.json({
@@ -217,6 +222,11 @@ app.delete('/api/registrations/:id', authMiddleware, async (req, res) => {
     } catch (err) {
         res.status(500).json({ message: 'Failed to delete', error: err.message })
     }
+})
+
+// Catch-all route to serve React app for non-API requests
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'))
 })
 
 // ========================
