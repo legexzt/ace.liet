@@ -1,0 +1,133 @@
+.footer {
+    padding: 80px 0 0;
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--glass-border);
+    position: relative;
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1.5fr;
+    gap: 40px;
+    padding-bottom: 40px;
+}
+
+.footer__logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.footer__logo-icon {
+    width: 40px;
+    height: 40px;
+    background: var(--gold-gradient);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-heading);
+    font-weight: 900;
+    font-size: 0.65rem;
+    color: var(--bg-primary);
+}
+
+.footer__logo-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer__logo-sub {
+    font-size: 0.7rem;
+    color: var(--green-accent);
+    letter-spacing: 1px;
+}
+
+.footer__desc {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.footer__socials {
+    display: flex;
+    gap: 12px;
+}
+
+.footer__social-link {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--glass-border);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all var(--transition-normal);
+}
+
+.footer__social-link:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+    box-shadow: var(--gold-glow);
+    transform: translateY(-3px);
+}
+
+.footer__links h4,
+.footer__contact h4 {
+    font-size: 0.9rem;
+    color: var(--gold);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.footer__links a {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    transition: color var(--transition-fast);
+}
+
+.footer__links a:hover {
+    color: var(--gold);
+    padding-left: 4px;
+}
+
+.footer__contact p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 4px 0;
+    line-height: 1.5;
+}
+
+.footer__bottom {
+    text-align: center;
+    padding: 24px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer__bottom p {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer__bottom-sub {
+    margin-top: 4px;
+    font-size: 0.75rem !important;
+    color: var(--gold-dark) !important;
+}
+
+@media (max-width: 768px) {
+    .footer__grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}

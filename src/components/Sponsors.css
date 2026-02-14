@@ -1,0 +1,78 @@
+.sponsors {
+    padding: var(--section-padding);
+    position: relative;
+}
+
+.sponsors::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 70% 50%, rgba(212, 160, 23, 0.04) 0%, transparent 60%);
+    pointer-events: none;
+}
+
+.sponsors__tier {
+    margin-bottom: 40px;
+}
+
+.sponsors__tier-title {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--gold);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.sponsors__grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.sponsors__card {
+    padding: 28px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    min-width: 200px;
+    text-align: center;
+}
+
+.sponsors__card-icon {
+    font-size: 2.5rem;
+}
+
+.sponsors__card-name {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* CTA */
+.sponsors__cta {
+    text-align: center;
+    margin-top: 50px;
+    padding: 40px;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+}
+
+.sponsors__cta p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+    .sponsors__card {
+        min-width: 150px;
+        padding: 20px 28px;
+    }
+}
