@@ -15,32 +15,35 @@
 }
 
 .gallery__filter-btn {
-    padding: 8px 20px;
+    padding: 8px 24px;
     border: 1px solid var(--glass-border);
     background: var(--glass-bg);
-    color: var(--text-muted);
+    color: var(--text-secondary);
     border-radius: 50px;
     font-size: 0.85rem;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     text-transform: capitalize;
     letter-spacing: 0.5px;
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(12px);
 }
 
 .gallery__filter-btn:hover {
-    border-color: var(--gold);
-    color: var(--gold);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+    border-color: var(--gold-light);
+    color: var(--gold-light);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.2);
+    background: rgba(212, 175, 55, 0.1);
 }
 
 .gallery__filter-btn--active {
-    background: linear-gradient(135deg, var(--gold), #b8941e);
+    background: var(--gold-gradient);
+    background-size: 200% auto;
     color: var(--bg-primary);
     border-color: var(--gold);
-    font-weight: 600;
-    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.3);
+    font-weight: 700;
+    box-shadow: 0 4px 20px rgba(212, 175, 55, 0.4);
+    animation: shimmerText 5s linear infinite;
 }
 
 /* ========================
@@ -57,12 +60,20 @@
     cursor: pointer;
     overflow: hidden;
     position: relative;
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     opacity: 0;
     transform: translateY(40px) scale(0.95);
-    transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-        transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+        box-shadow 0.4s ease;
     transition-delay: var(--delay, 0s);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.gallery__item:hover {
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4),
+        0 0 20px rgba(212, 160, 23, 0.2);
+    z-index: 10;
 }
 
 .gallery__item--visible {

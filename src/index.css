@@ -16,9 +16,9 @@
   --gold: #d4a017;
   --gold-light: #f0d060;
   --gold-dark: #b8860b;
-  --gold-gradient: linear-gradient(135deg, #b8860b, #d4a017, #f0d060, #d4a017, #b8860b);
-  --gold-glow: 0 0 20px rgba(212, 160, 23, 0.3);
-  --gold-glow-strong: 0 0 30px rgba(212, 160, 23, 0.5);
+  --gold-gradient: linear-gradient(135deg, #b8860b, #d4a017 30%, #f9e596 50%, #d4a017 70%, #b8860b);
+  --gold-glow: 0 0 25px rgba(212, 160, 23, 0.4);
+  --gold-glow-strong: 0 0 40px rgba(212, 160, 23, 0.6);
 
   /* Green Colors */
   --green-accent: #1db954;
@@ -32,10 +32,10 @@
   --text-gold: #d4a017;
 
   /* Glass */
-  --glass-bg: rgba(10, 31, 16, 0.6);
-  --glass-border: rgba(212, 160, 23, 0.25);
-  --glass-border-hover: rgba(212, 160, 23, 0.5);
-  --glass-blur: blur(20px);
+  --glass-bg: rgba(10, 31, 16, 0.4);
+  --glass-border: rgba(212, 160, 23, 0.15);
+  --glass-border-hover: rgba(212, 160, 23, 0.4);
+  --glass-blur: blur(24px);
 
   /* Typography */
   --font-heading: 'Outfit', sans-serif;
@@ -75,7 +75,7 @@ body {
   font-family: var(--font-body);
   background: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.6;
+  line-height: 1.7;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -157,6 +157,7 @@ ul {
   gap: 8px;
   padding: 14px 36px;
   background: var(--gold-gradient);
+  background-size: 200% auto;
   color: #0a1a0a;
   font-family: var(--font-heading);
   font-weight: 700;
@@ -164,16 +165,16 @@ ul {
   border: none;
   border-radius: var(--radius-full);
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   text-transform: uppercase;
   letter-spacing: 1px;
   box-shadow: var(--gold-glow);
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.02);
   box-shadow: var(--gold-glow-strong);
-  filter: brightness(1.1);
+  background-position: right center;
 }
 
 .btn-secondary {
@@ -189,14 +190,34 @@ ul {
   border: 2px solid var(--gold);
   border-radius: var(--radius-full);
   cursor: pointer;
-  transition: all var(--transition-normal);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(212, 160, 23, 0.15);
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  z-index: -1;
+}
+
+.btn-secondary:hover::before {
+  left: 0;
 }
 
 .btn-secondary:hover {
-  background: rgba(212, 160, 23, 0.1);
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: var(--gold-glow);
+  color: var(--gold-light);
+  border-color: var(--gold-light);
 }
 
 /* Glass Card */
@@ -241,13 +262,15 @@ ul {
 /* Scroll Reveal Animation */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(40px) scale(0.98);
+  transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: opacity, transform;
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 /* Responsive */

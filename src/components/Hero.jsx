@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { Target, Trophy, MapPin, Sparkles, Calendar, Gamepad2 } from 'lucide-react'
 import './Hero.css'
 
 export default function Hero({ onRegister }) {
@@ -50,8 +51,8 @@ export default function Hero({ onRegister }) {
                     <span></span><span></span><span></span>
                 </div>
                 <div className="hero__geo hero__geo--1"></div>
-                <div className="hero__float-tag hero__float-tag--left glass-card">
-                    🎯 4 Events
+                <div className="hero__float-tag hero__float-tag--left glass-card" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Target size={16} color="#d4a017" /> 4 Events
                 </div>
             </div>
 
@@ -63,8 +64,8 @@ export default function Hero({ onRegister }) {
                     <span></span><span></span><span></span>
                 </div>
                 <div className="hero__geo hero__geo--2"></div>
-                <div className="hero__float-tag hero__float-tag--right glass-card">
-                    🏆 ₹20K+ Prizes
+                <div className="hero__float-tag hero__float-tag--right glass-card" style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
+                    <Trophy size={16} color="#d4a017" /> ₹20K+ Prizes
                 </div>
             </div>
 
@@ -86,8 +87,8 @@ export default function Hero({ onRegister }) {
                 <p className="hero__subtitle">
                     A Two Day National Level Technical & Non-Technical Fest
                 </p>
-                <p className="hero__venue">
-                    🏛️ Lords Institute of Engineering & Technology
+                <p className="hero__venue" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                    <MapPin size={18} color="#d4a017" /> Lords Institute of Engineering & Technology
                 </p>
 
                 <div className="hero__countdown">
@@ -106,7 +107,7 @@ export default function Hero({ onRegister }) {
 
                 <div className="hero__actions">
                     <button className="btn-primary" onClick={onRegister}>
-                        ✨ Register Now
+                        <Sparkles size={18} /> Register Now
                     </button>
                     <a href="#events" className="btn-secondary" onClick={(e) => {
                         e.preventDefault()
@@ -117,14 +118,14 @@ export default function Hero({ onRegister }) {
                 </div>
 
                 <div className="hero__dates">
-                    <div className="hero__date-badge">
-                        📅 8 & 9 April 2026
+                    <div className="hero__date-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Calendar size={16} color="#d4a017" /> 8 & 9 April 2026
                     </div>
-                    <div className="hero__date-badge">
-                        🏆 Prize Pool ₹20,000+
+                    <div className="hero__date-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Trophy size={16} color="#d4a017" /> Prize Pool ₹20,000+
                     </div>
-                    <div className="hero__date-badge">
-                        🎮 Gaming Arena
+                    <div className="hero__date-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                        <Gamepad2 size={16} color="#d4a017" /> Gaming Arena
                     </div>
                 </div>
             </div>

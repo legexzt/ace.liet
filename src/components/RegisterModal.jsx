@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Check, PartyPopper, Target } from 'lucide-react'
 import './RegisterModal.css'
 
 const EVENTS_LIST = [
@@ -62,7 +63,7 @@ export default function RegisterModal({ event, onClose }) {
                 <div className="modal__progress">
                     {[1, 2, 3].map(s => (
                         <div key={s} className={`modal__progress-step ${step >= s ? 'modal__progress-step--active' : ''}`}>
-                            {success && s === 3 ? '✓' : s}
+                            {success && s === 3 ? <Check size={16} strokeWidth={3} /> : s}
                         </div>
                     ))}
                     <div className="modal__progress-bar">
@@ -72,7 +73,9 @@ export default function RegisterModal({ event, onClose }) {
 
                 {success ? (
                     <div className="modal__success">
-                        <div className="modal__success-icon">🎉</div>
+                        <div className="modal__success-icon">
+                            <PartyPopper size={48} color="#d4a017" strokeWidth={1.5} />
+                        </div>
                         <h3>Registration Successful!</h3>
                         <p>You have been registered for <strong>{formData.event}</strong>.</p>
                         <p className="modal__success-note">We'll contact you via email/phone with further details.</p>
@@ -199,8 +202,8 @@ export default function RegisterModal({ event, onClose }) {
                                     Next →
                                 </button>
                             ) : (
-                                <button className="btn-primary" onClick={handleSubmit} disabled={loading}>
-                                    {loading ? 'Submitting...' : '🎯 Submit Registration'}
+                                <button className="btn-primary" onClick={handleSubmit} disabled={loading} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+                                    {loading ? 'Submitting...' : <><Target size={18} /> Submit Registration</>}
                                 </button>
                             )}
                         </div>

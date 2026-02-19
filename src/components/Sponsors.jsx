@@ -1,25 +1,26 @@
 import './Sponsors.css'
+import { Trophy, Gem, Award, Handshake } from 'lucide-react'
 
 const SPONSOR_TIERS = [
     {
         tier: 'Title Sponsor',
         sponsors: [
-            { name: 'ACE - Association of Computer Engineers', icon: '🏆' },
+            { name: 'ACE - Association of Computer Engineers', icon: Trophy },
         ],
     },
     {
         tier: 'Platinum Sponsors',
         sponsors: [
-            { name: 'Sponsor Slot Available', icon: '💎' },
-            { name: 'Sponsor Slot Available', icon: '💎' },
+            { name: 'Sponsor Slot Available', icon: Gem },
+            { name: 'Sponsor Slot Available', icon: Gem },
         ],
     },
     {
         tier: 'Gold Sponsors',
         sponsors: [
-            { name: 'Sponsor Slot Available', icon: '🥇' },
-            { name: 'Sponsor Slot Available', icon: '🥇' },
-            { name: 'Sponsor Slot Available', icon: '🥇' },
+            { name: 'Sponsor Slot Available', icon: Award },
+            { name: 'Sponsor Slot Available', icon: Award },
+            { name: 'Sponsor Slot Available', icon: Award },
         ],
     },
 ]
@@ -41,7 +42,7 @@ export default function Sponsors() {
                         <div className="sponsors__grid">
                             {tier.sponsors.map((sponsor, i) => (
                                 <div key={i} className="sponsors__card glass-card">
-                                    <span className="sponsors__card-icon">{sponsor.icon}</span>
+                                    <span className="sponsors__card-icon"><sponsor.icon size={28} color="#d4a017" /></span>
                                     <span className="sponsors__card-name">{sponsor.name}</span>
                                 </div>
                             ))}
@@ -54,8 +55,9 @@ export default function Sponsors() {
                     <a
                         href="mailto:ace.liet@gmail.com?subject=Sponsorship Inquiry - Sanketika 2026"
                         className="btn-primary"
+                        style={{ display: 'flex', alignItems: 'center', gap: '8px' }}
                     >
-                        🤝 Become a Sponsor
+                        <Handshake size={20} /> Become a Sponsor
                     </a>
                 </div>
             </div>

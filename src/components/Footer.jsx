@@ -1,3 +1,4 @@
+import { MapPin, Phone, Mail, Heart } from 'lucide-react'
 import './Footer.css'
 
 export default function Footer() {
@@ -53,16 +54,18 @@ export default function Footer() {
 
                     <div className="footer__contact">
                         <h4>Contact Us</h4>
-                        <p>📍 Lords Institute of Engineering & Technology, Hyderabad</p>
-                        <p>📞 Md Rizwan: +91 90140 41144</p>
-                        <p>📞 Shaik Irfan: +91 93906 83362</p>
-                        <p>📧 ace.liet@gmail.com</p>
+                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><MapPin size={16} color="#d4a017" /> Lords Institute of Engineering & Technology, Hyderabad</p>
+                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Phone size={16} color="#d4a017" /> Md Rizwan: +91 90140 41144</p>
+                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Phone size={16} color="#d4a017" /> Shaik Irfan: +91 93906 83362</p>
+                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Mail size={16} color="#d4a017" /> ace.liet@gmail.com</p>
                     </div>
                 </div>
 
                 <div className="footer__bottom">
                     <p>© 2026 ACE — Association of Computer Engineers, LIET. All rights reserved.</p>
-                    <p className="footer__bottom-sub">Designed with 💛 by ACE Tech Team</p>
+                    <p className="footer__bottom-sub" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                        Designed with <Heart size={14} color="#d4a017" fill="#d4a017" /> by ACE Tech Team
+                    </p>
                 </div>
             </div>
         </footer>

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { Target, Lightbulb, Rocket } from 'lucide-react'
 import './About.css'
 
 const STATS = [
@@ -77,7 +78,9 @@ export default function About() {
 
                 <div className="about__grid reveal">
                     <div className="about__info glass-card">
-                        <div className="about__info-icon">🎯</div>
+                        <div className="about__info-icon">
+                            <Target size={32} color="#d4a017" strokeWidth={1.5} />
+                        </div>
                         <h3>What is Sanketika?</h3>
                         <p>
                             Sanketika is a Two Day National Level Technical & Non-Technical Fest organized by
@@ -88,7 +91,9 @@ export default function About() {
                     </div>
 
                     <div className="about__info glass-card">
-                        <div className="about__info-icon">💡</div>
+                        <div className="about__info-icon">
+                            <Lightbulb size={32} color="#d4a017" strokeWidth={1.5} />
+                        </div>
                         <h3>What is ACE?</h3>
                         <p>
                             ACE is the official club of the CSE Department at LIET, dedicated to fostering
@@ -99,7 +104,9 @@ export default function About() {
                     </div>
 
                     <div className="about__info glass-card">
-                        <div className="about__info-icon">🚀</div>
+                        <div className="about__info-icon">
+                            <Rocket size={32} color="#d4a017" strokeWidth={1.5} />
+                        </div>
                         <h3>What's New in 2026?</h3>
                         <p>
                             From AI Prompt Engineering to an intense Gaming Arena, from creative Poster Making
