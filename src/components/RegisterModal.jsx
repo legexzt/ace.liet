@@ -2,12 +2,10 @@ import { useState } from 'react'
 import './RegisterModal.css'
 
 const EVENTS_LIST = [
-    'Static Web Page Designing',
-    'Prompt-to-PIXEL (AI Image Generation)',
-    'LangChain & RAG Workshop',
-    'Short Film Making',
-    'Speaker Sessions',
-    'CodeStorm Challenge',
+    'AI Prompt Engineering Challenge',
+    'Poster Making',
+    'Code in Chaos',
+    'The Game Arena (BGMI, Free Fire)',
 ]
 
 export default function RegisterModal({ event, onClose }) {

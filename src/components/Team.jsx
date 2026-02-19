@@ -13,6 +13,33 @@ const STUDENTS = [
     { name: 'Mohammed Abdul Amaan', role: 'Student Coordinator', phone: '+91 75690 99311', icon: '🎓' },
 ]
 
+const EVENT_COORDINATORS = [
+    {
+        event: 'AI Prompt Engineering Challenge',
+        icon: '🤖',
+        students: ['Fizra Fathima', 'Syed Imad uddin'],
+        faculty: ['Mr. Najeemulla Baig', 'Mr. Ryan Husain'],
+    },
+    {
+        event: 'Poster Making',
+        icon: '🎨',
+        students: ['Zohair Shahid Khan', 'Samad'],
+        faculty: ['Ms. Sweta P', 'Madiha Banu'],
+    },
+    {
+        event: 'Code in Chaos',
+        icon: '⚡',
+        students: ['Thaizia', 'Aamina Bushra'],
+        faculty: ['Ms. Mayuri Tone', 'Ms. Bhavana'],
+    },
+    {
+        event: 'The Game Arena',
+        icon: '🎮',
+        students: ['Abdul Rahman', 'Mohammed Taqee'],
+        faculty: ['Dr. Rizwan', 'Ms. Saniya'],
+    },
+]
+
 const DEPARTMENTS = [
     'Event Management', 'Graphics', 'Marketing', 'Operations',
     'Sponsorship', 'Documentation', 'Photography',
@@ -55,6 +82,26 @@ export default function Team() {
                                         📞 {member.phone}
                                     </a>
                                 )}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div className="team__section reveal">
+                    <h3 className="team__section-title">Event-wise Coordinators</h3>
+                    <div className="team__grid team__grid--events">
+                        {EVENT_COORDINATORS.map(coord => (
+                            <div key={coord.event} className="team__card team__card--event glass-card">
+                                <div className="team__card-avatar">{coord.icon}</div>
+                                <h4 className="team__card-name">{coord.event}</h4>
+                                <div className="team__card-coord-section">
+                                    <span className="team__card-coord-label">🎓 Students</span>
+                                    <p className="team__card-coord-names">{coord.students.join(', ')}</p>
+                                </div>
+                                <div className="team__card-coord-section">
+                                    <span className="team__card-coord-label">👨‍🏫 Faculty</span>
+                                    <p className="team__card-coord-names">{coord.faculty.join(', ')}</p>
+                                </div>
                             </div>
                         ))}
                     </div>

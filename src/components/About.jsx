@@ -3,7 +3,7 @@ import './About.css'
 
 const STATS = [
     { value: 500, suffix: '+', label: 'Participants' },
-    { value: 5, suffix: '+', label: 'Events' },
+    { value: 4, suffix: '', label: 'Events' },
     { value: 2, suffix: '', label: 'Days' },
     { value: 20, suffix: 'K+', label: 'Prize Pool ₹' },
     { value: 50, suffix: '+', label: 'Colleges' },
@@ -100,12 +100,12 @@ export default function About() {
 
                     <div className="about__info glass-card">
                         <div className="about__info-icon">🚀</div>
-                        <h3>CodeStorm</h3>
+                        <h3>What's New in 2026?</h3>
                         <p>
-                            The flagship event series under Sanketika featuring cutting-edge competitions
-                            in Web Development, AI/ML, and more. CodeStorm challenges participants to push
-                            their technical boundaries through hands-on contests and workshops led by
-                            industry experts.
+                            From AI Prompt Engineering to an intense Gaming Arena, from creative Poster Making
+                            to the chaotic Code in Chaos — SANKETIKA 2026 brings 4 power-packed events
+                            across 2 days. Each event is designed to challenge your skills, creativity,
+                            and competitive spirit!
                         </p>
                     </div>
                 </div>

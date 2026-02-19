@@ -2,58 +2,48 @@ import './Events.css'
 
 const EVENTS = [
     {
-        id: 'web-design',
-        icon: '🌐',
-        title: 'Static Web Page Designing',
-        description: 'Showcase your web development skills by creating stunning static web pages. Compete with the best developers from across the nation.',
-        category: 'Technical',
-        prize: '₹3,000',
-        team: 'Individual / Team of 2',
-    },
-    {
-        id: 'prompt-to-pixel',
-        icon: '🎨',
-        title: 'Prompt-to-PIXEL',
-        description: 'AI Image Generation challenge using Midjourney, DALL·E, and Leonardo AI. Transform text prompts into breathtaking visual masterpieces.',
-        category: 'Technical',
-        prize: '₹3,000',
-        team: 'Individual',
-    },
-    {
-        id: 'langchain-workshop',
+        id: 'ai-prompt',
         icon: '🤖',
-        title: 'LangChain & RAG Workshop',
-        description: 'Deep dive into LLMs, Retrieval-Augmented Generation, Prompt Engineering, Vector Databases, and Agentic AI with industry experts.',
-        category: 'Workshop',
-        prize: 'Certificate',
-        team: 'Individual',
+        title: 'AI Prompt Engineering Challenge',
+        description: 'Test your AI mastery! Craft intelligent prompts to generate stunning outputs using cutting-edge AI tools. Push the boundaries of what AI can create.',
+        category: 'Technical',
+        prize: '₹5,000',
+        team: 'Individual / Team of 2',
+        studentCoords: ['Fizra Fathima', 'Syed Imad uddin'],
+        facultyCoords: ['Mr. Najeemulla Baig', 'Mr. Ryan Husain'],
     },
     {
-        id: 'short-film',
-        icon: '🎬',
-        title: 'Short Film Making',
-        description: 'Unleash your directorial and creative talent. Create compelling short films that tell powerful stories and captivate audiences.',
+        id: 'poster-making',
+        icon: '🎨',
+        title: 'Poster Making',
+        description: 'Unleash your artistic vision! Design powerful posters that communicate ideas through creativity, color, and composition. Digital & traditional both welcome.',
         category: 'Non-Technical',
         prize: '₹3,000',
-        team: 'Team of 3-5',
+        team: 'Individual',
+        studentCoords: ['Zohair Shahid Khan', 'Samad'],
+        facultyCoords: ['Ms. Sweta P', 'Madiha Banu'],
     },
     {
-        id: 'speaker-sessions',
-        icon: '🎤',
-        title: 'Speaker Sessions',
-        description: 'Gain insights from industry leaders and tech pioneers. Interactive sessions covering the latest trends in technology and entrepreneurship.',
-        category: 'Special',
-        prize: 'Networking',
-        team: 'Open to All',
-    },
-    {
-        id: 'codestorm',
+        id: 'code-in-chaos',
         icon: '⚡',
-        title: 'CodeStorm Challenge',
-        description: 'The ultimate coding competition. Solve complex algorithmic problems under pressure and prove your coding prowess against the best.',
+        title: 'Code in Chaos',
+        description: 'Can you code under pressure? Debug, solve, and conquer chaotic programming challenges in a high-intensity battle of logic and speed.',
         category: 'Technical',
-        prize: '₹3,000',
+        prize: '₹5,000',
         team: 'Individual / Team of 2',
+        studentCoords: ['Thaizia', 'Aamina Bushra'],
+        facultyCoords: ['Ms. Mayuri Tone', 'Ms. Bhavana'],
+    },
+    {
+        id: 'game-arena',
+        icon: '🎮',
+        title: 'The Game Arena',
+        description: 'BGMI, Free Fire & more! Compete in the ultimate gaming showdown. Assemble your squad, strategize, and dominate the battlefield to claim victory.',
+        category: 'Gaming',
+        prize: '₹5,000',
+        team: 'Squad (4 Players)',
+        studentCoords: ['Abdul Rahman', 'Mohammed Taqee'],
+        facultyCoords: ['Dr. Rizwan', 'Ms. Saniya'],
     },
 ]
 
@@ -64,7 +54,7 @@ export default function Events({ onRegister }) {
                 <div className="reveal">
                     <h2 className="section-title">Events & Competitions</h2>
                     <p className="section-subtitle">
-                        Explore our exciting lineup of technical and non-technical events under CodeStorm
+                        Explore our electrifying lineup of 4 flagship events at SANKETIKA 2026
                     </p>
                 </div>
 
@@ -79,6 +69,26 @@ export default function Events({ onRegister }) {
                             </div>
                             <h3 className="events__card-title">{event.title}</h3>
                             <p className="events__card-desc">{event.description}</p>
+
+                            <div className="events__card-coordinators">
+                                <div className="events__coord-group">
+                                    <span className="events__coord-label">🎓 Student Coordinators</span>
+                                    <div className="events__coord-names">
+                                        {event.studentCoords.map(name => (
+                                            <span key={name} className="events__coord-chip">{name}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                                <div className="events__coord-group">
+                                    <span className="events__coord-label">👨‍🏫 Faculty Coordinators</span>
+                                    <div className="events__coord-names">
+                                        {event.facultyCoords.map(name => (
+                                            <span key={name} className="events__coord-chip events__coord-chip--faculty">{name}</span>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className="events__card-meta">
                                 <div className="events__card-meta-item">
                                     <span className="events__card-meta-label">Prize</span>

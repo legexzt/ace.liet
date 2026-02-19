@@ -5,7 +5,7 @@ export default function Hero({ onRegister }) {
     const [timeLeft, setTimeLeft] = useState({ days: 0, hours: 0, minutes: 0, seconds: 0 })
 
     useEffect(() => {
-        const eventDate = new Date('2026-04-24T09:00:00+05:30').getTime()
+        const eventDate = new Date('2026-04-08T09:00:00+05:30').getTime()
 
         const timer = setInterval(() => {
             const now = Date.now()
@@ -51,7 +51,7 @@ export default function Hero({ onRegister }) {
                 </div>
                 <div className="hero__geo hero__geo--1"></div>
                 <div className="hero__float-tag hero__float-tag--left glass-card">
-                    🎯 6+ Events
+                    🎯 4 Events
                 </div>
             </div>
 
@@ -118,10 +118,13 @@ export default function Hero({ onRegister }) {
 
                 <div className="hero__dates">
                     <div className="hero__date-badge">
-                        📅 24 & 25 April 2026
+                        📅 8 & 9 April 2026
                     </div>
                     <div className="hero__date-badge">
                         🏆 Prize Pool ₹20,000+
+                    </div>
+                    <div className="hero__date-badge">
+                        🎮 Gaming Arena
                     </div>
                 </div>
             </div>

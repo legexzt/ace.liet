@@ -31,9 +31,50 @@
     margin: 0 auto;
 }
 
+.team__grid--events {
+    grid-template-columns: repeat(2, 1fr);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
 .team__card {
     padding: 32px 24px;
     text-align: center;
+}
+
+.team__card--event {
+    text-align: left;
+    padding: 24px;
+}
+
+.team__card--event .team__card-avatar {
+    margin: 0 0 12px 0;
+}
+
+.team__card--event .team__card-name {
+    font-size: 1.05rem;
+    margin-bottom: 14px;
+    color: var(--gold-light);
+}
+
+.team__card-coord-section {
+    margin-bottom: 10px;
+}
+
+.team__card-coord-label {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.team__card-coord-names {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
 }
 
 .team__card-avatar {
@@ -112,6 +153,10 @@
     }
 
     .team__grid--students {
+        grid-template-columns: 1fr;
+    }
+
+    .team__grid--events {
         grid-template-columns: 1fr;
     }
 }

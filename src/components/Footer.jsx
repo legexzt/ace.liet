@@ -45,11 +45,10 @@ export default function Footer() {
 
                     <div className="footer__links">
                         <h4>Events</h4>
-                        <a href="#events">Web Page Designing</a>
-                        <a href="#events">Prompt-to-PIXEL</a>
-                        <a href="#events">LangChain Workshop</a>
-                        <a href="#events">Short Film Making</a>
-                        <a href="#events">CodeStorm</a>
+                        <a href="#events">AI Prompt Engineering</a>
+                        <a href="#events">Poster Making</a>
+                        <a href="#events">Code in Chaos</a>
+                        <a href="#events">The Game Arena</a>
                     </div>
 
                     <div className="footer__contact">
