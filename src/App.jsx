@@ -17,9 +17,10 @@ function App() {
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
-    if (window.location.hash === '#admin') {
-      setIsAdmin(true)
-    }
+    const checkHash = () => setIsAdmin(window.location.hash === '#admin')
+    checkHash()
+    window.addEventListener('hashchange', checkHash)
+
     // Scroll reveal observer
     const observer = new IntersectionObserver(
       (entries) => {
@@ -32,7 +33,11 @@ function App() {
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     )
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
-    return () => observer.disconnect()
+
+    return () => {
+      window.removeEventListener('hashchange', checkHash)
+      observer.disconnect()
+    }
   }, [isAdmin])
 
   const openRegister = (eventName = '') => {

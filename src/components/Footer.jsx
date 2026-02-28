@@ -63,8 +63,10 @@ export default function Footer() {
 
                 <div className="footer__bottom">
                     <p>© 2026 ACE — Association of Computer Engineers, LIET. All rights reserved.</p>
-                    <p className="footer__bottom-sub" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                    <p className="footer__bottom-sub" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', flexWrap: 'wrap' }}>
                         Designed with <Heart size={14} color="#d4a017" fill="#d4a017" /> by ACE Tech Team
+                        <span style={{ margin: '0 8px', opacity: 0.3 }}>|</span>
+                        <a href="#admin" onClick={() => window.location.hash = '#admin'} style={{ color: 'var(--text-muted)', textDecoration: 'none', fontSize: '0.8rem', transition: 'color 0.2s' }} onMouseOver={e => e.target.style.color = 'var(--gold)'} onMouseOut={e => e.target.style.color = 'var(--text-muted)'}>Admin Access</a>
                     </p>
                 </div>
             </div>
