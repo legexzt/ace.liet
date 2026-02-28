@@ -535,3 +535,60 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Quick Contact Actions */
+.admin__contact-actions {
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.admin__contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    color: var(--text-primary);
+    transition: all 0.2s ease;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.admin__contact-btn:hover {
+    transform: translateY(-2px);
+}
+
+.admin__contact-btn--whatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25D366;
+    border-color: rgba(37, 211, 102, 0.3);
+}
+
+.admin__contact-btn--whatsapp:hover {
+    background: #25D366;
+    color: white;
+}
+
+.admin__contact-btn--call {
+    background: rgba(0, 180, 216, 0.1);
+    color: #00b4d8;
+    border-color: rgba(0, 180, 216, 0.3);
+}
+
+.admin__contact-btn--call:hover {
+    background: #00b4d8;
+    color: white;
+}
+
+.admin__contact-btn--email {
+    background: rgba(255, 77, 79, 0.1);
+    color: #ff4d4f;
+    border-color: rgba(255, 77, 79, 0.3);
+}
+
+.admin__contact-btn--email:hover {
+    background: #ff4d4f;
+    color: white;
+}

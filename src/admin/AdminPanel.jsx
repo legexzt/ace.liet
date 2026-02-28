@@ -5,6 +5,7 @@ import {
     BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
     PieChart, Pie, Cell
 } from 'recharts'
+import { Mail, Phone, MessageCircle } from 'lucide-react'
 import './AdminPanel.css'
 
 const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:3001') + '/api'
@@ -416,6 +417,19 @@ export default function AdminPanel({ onExit }) {
                                                     <td>
                                                         <div>{reg.email}</div>
                                                         <div style={{ opacity: 0.7, fontSize: '0.85rem' }}>+91 {reg.phone}</div>
+
+                                                        {/* Quick Contact Actions */}
+                                                        <div className="admin__contact-actions">
+                                                            <a href={`https://wa.me/91${reg.phone.replace(/\s+/g, '')}`} target="_blank" rel="noopener noreferrer" title="Message on WhatsApp" className="admin__contact-btn admin__contact-btn--whatsapp">
+                                                                <MessageCircle size={14} />
+                                                            </a>
+                                                            <a href={`tel:+91${reg.phone.replace(/\s+/g, '')}`} title="Call Participant" className="admin__contact-btn admin__contact-btn--call">
+                                                                <Phone size={14} />
+                                                            </a>
+                                                            <a href={`mailto:${reg.email}`} title="Send Email" className="admin__contact-btn admin__contact-btn--email">
+                                                                <Mail size={14} />
+                                                            </a>
+                                                        </div>
                                                     </td>
                                                     <td style={{ opacity: 0.8, fontSize: '0.9rem' }}>{formatDate(reg.createdAt)}</td>
                                                 </tr>
