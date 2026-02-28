@@ -45,19 +45,19 @@ export default function Footer() {
                     </div>
 
                     <div className="footer__links">
-                        <h4>Events</h4>
+                        <h4 className="footer__subtitle">Events</h4>
                         <a href="#events">AI Prompt Engineering</a>
                         <a href="#events">Poster Making</a>
                         <a href="#events">Code in Chaos</a>
-                        <a href="#events">The Game Arena</a>
+                        <a href="#events">Instagram Reel Making</a>
                     </div>
 
                     <div className="footer__contact">
-                        <h4>Contact Us</h4>
-                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><MapPin size={16} color="#d4a017" /> Lords Institute of Engineering & Technology, Hyderabad</p>
-                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Phone size={16} color="#d4a017" /> Md Rizwan: +91 90140 41144</p>
-                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Phone size={16} color="#d4a017" /> Shaik Irfan: +91 93906 83362</p>
-                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}><Mail size={16} color="#d4a017" /> ace.liet@gmail.com</p>
+                        <h4 className="footer__subtitle">Contact Us</h4>
+                        <p>Lords Institute of Engineering and Technology</p>
+                        <p>Himayath Sagar, Hyderabad</p>
+                        <p>Email: example@lords.ac.in</p>
+                        <p>Phone: +91 XXXXX XXXXX</p>
                     </div>
                 </div>
 

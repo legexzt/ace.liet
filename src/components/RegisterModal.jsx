@@ -1,18 +1,35 @@
-import { useState } from 'react'
-import { Check, PartyPopper, Target } from 'lucide-react'
+import { useState, useRef } from 'react'
+import { Check, PartyPopper, Target, Download } from 'lucide-react'
+import html2canvas from 'html2canvas'
 import './RegisterModal.css'
+
+const MOTIVATIONAL_QUOTES = [
+    "Innovation distinguishes between a leader and a follower.",
+    "The future belongs to those who learn more skills and combine them in creative ways.",
+    "First, solve the problem. Then, write the code.",
+    "Make it work, make it right, make it fast.",
+    "Talk is cheap. Show me the code.",
+    "Creativity is intelligence having fun.",
+    "The only way to do great work is to love what you do.",
+    "Every great developer you know got there by solving problems they were unqualified to solve.",
+    "In order to be irreplaceable, one must always be different.",
+    "Code is like humor. When you have to explain it, it's bad."
+];
 
 const EVENTS_LIST = [
     'AI Prompt Engineering Challenge',
     'Poster Making',
     'Code in Chaos',
-    'The Game Arena (BGMI, Free Fire)',
+    'Instagram Reel Making',
 ]
 
 export default function RegisterModal({ event, onClose }) {
     const [step, setStep] = useState(1)
     const [loading, setLoading] = useState(false)
     const [success, setSuccess] = useState(false)
+    const [downloading, setDownloading] = useState(false)
+    const [quote, setQuote] = useState('')
+    const cardRef = useRef(null)
     const [formData, setFormData] = useState({
         event: event || '',
         teamName: '',
@@ -32,23 +49,52 @@ export default function RegisterModal({ event, onClose }) {
     const handleSubmit = async () => {
         setLoading(true)
         try {
-            const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:3001'
-            const res = await fetch(`${API_URL}/api/register`, {
+            const GOOGLE_FORM_ACTION = 'https://docs.google.com/forms/u/0/d/e/1FAIpQLSf83efzKwxL0WcqptN9mwKiyug3c0sqMiMSG6mul_xqZY69mA/formResponse';
+
+            const formParams = new URLSearchParams();
+            formParams.append('entry.957182212', formData.event); // Event
+            formParams.append('entry.1106436604', formData.leaderName); // Name
+            formParams.append('entry.1340991481', formData.teamName || 'N/A'); // Team Name
+            formParams.append('entry.792004370', formData.members || 'None'); // Members
+            formParams.append('entry.1471012741', formData.email); // Email
+            formParams.append('entry.838773708', formData.phone); // Phone
+            formParams.append('entry.232806118', formData.college || 'N/A'); // College
+            formParams.append('entry.1593098683', formData.branch || 'N/A'); // Branch
+            formParams.append('entry.1734440777', formData.year || 'N/A'); // Year
+
+            // Submit directly to Google Forms bypassing CORS
+            await fetch(GOOGLE_FORM_ACTION, {
                 method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData),
-            })
-            if (res.ok) {
-                setSuccess(true)
-            } else {
-                // Fallback — if backend not running, show success anyway for demo
-                setSuccess(true)
-            }
-        } catch {
-            // Backend not running — show success with a note
-            setSuccess(true)
+                mode: 'no-cors',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: formParams
+            });
+
+            setSuccess(true);
+            setQuote(MOTIVATIONAL_QUOTES[Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length)]);
+        } catch (error) {
+            console.error("Form submission failed:", error);
+            setSuccess(true); // Fallback to show success for robust UX
+            setQuote(MOTIVATIONAL_QUOTES[Math.floor(Math.random() * MOTIVATIONAL_QUOTES.length)]);
         }
         setLoading(false)
+    }
+
+    const handleDownload = async () => {
+        if (!cardRef.current) return;
+        setDownloading(true);
+        try {
+            const canvas = await html2canvas(cardRef.current, { backgroundColor: null, scale: 2 });
+            const link = document.createElement('a');
+            link.download = `Sanketika_Invite_${formData.leaderName.replace(/\s+/g, '_')}.png`;
+            link.href = canvas.toDataURL('image/png');
+            link.click();
+        } catch (error) {
+            console.error('Download failed', error);
+        }
+        setDownloading(false);
     }
 
     const canProceedStep1 = formData.event !== ''
@@ -78,8 +124,37 @@ export default function RegisterModal({ event, onClose }) {
                         </div>
                         <h3>Registration Successful!</h3>
                         <p>You have been registered for <strong>{formData.event}</strong>.</p>
+
                         <p className="modal__success-note">We'll contact you via email/phone with further details.</p>
-                        <button className="btn-primary" onClick={onClose}>Done</button>
+
+                        <div className="invite-card-wrapper">
+                            <div className="invite-card" ref={cardRef}>
+                                <div className="invite-card__bg">
+                                    <img src="/images/ace-logo.png" alt="ACE Logo" crossOrigin="anonymous" />
+                                </div>
+                                <div className="invite-card__content">
+                                    <div className="invite-card__header">
+                                        <h3>SANKETIKA 2026</h3>
+                                        <span>VIP PASS</span>
+                                    </div>
+                                    <div className="invite-card__body">
+                                        <h4>{formData.leaderName}</h4>
+                                        <p className="invite-card__event">{formData.event}</p>
+                                        {formData.teamName && <p className="invite-card__team">Team: {formData.teamName}</p>}
+                                    </div>
+                                    <div className="invite-card__footer">
+                                        <p className="invite-card__quote">"{quote}"</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="invite-card-actions">
+                            <button className="btn-download" onClick={handleDownload} disabled={downloading}>
+                                {downloading ? 'Generating...' : <><Download size={18} /> Download Invitation</>}
+                            </button>
+                            <button className="btn-secondary" style={{ marginLeft: '10px' }} onClick={onClose}>Done</button>
+                        </div>
                     </div>
                 ) : (
                     <>

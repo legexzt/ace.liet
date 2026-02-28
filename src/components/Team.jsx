@@ -34,7 +34,7 @@ const EVENT_COORDINATORS = [
         faculty: ['Ms. Mayuri Tone', 'Ms. Bhavana'],
     },
     {
-        event: 'The Game Arena',
+        event: 'Instagram Reel Making', // Changed from 'The Game Arena'
         icon: Gamepad2,
         students: ['Abdul Rahman', 'Mohammed Taqee'],
         faculty: ['Dr. Rizwan', 'Ms. Saniya'],

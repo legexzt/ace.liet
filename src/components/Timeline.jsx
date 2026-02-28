@@ -19,7 +19,7 @@ const TIMELINE_DATA = [
         day: 'Day 2 — April 9, 2026',
         events: [
             { time: '09:30 AM', title: 'Code in Chaos Begins', desc: 'Round 1 — chaotic coding challenges under time pressure', icon: Laptop },
-            { time: '10:00 AM', title: 'The Game Arena Opens', desc: 'BGMI & Free Fire tournaments kick off — squads battle it out', icon: Gamepad2 },
+            { time: '10:00 AM', title: 'Instagram Reel Making Opens', desc: 'BGMI & Free Fire tournaments kick off — squads battle it out', icon: Gamepad2 },
             { time: '11:30 AM', title: 'Code in Chaos Round 2', desc: 'Elimination round — only the sharpest coders survive', icon: Zap },
             { time: '01:00 PM', title: 'Lunch Break', desc: 'Refreshments & live gaming streams on the big screen', icon: Coffee },
             { time: '02:00 PM', title: 'Game Arena Semi-Finals', desc: 'Top squads clash in intense semifinal matches', icon: Flame },
