@@ -136,25 +136,6 @@ export default function AdminPanel({ onExit }) {
 
     const loadDemoData = (returnOnly = false) => {
         const mockRegs = []
-        const colleges = ['LIET', 'MJCET', 'Muffakham Jah', 'CBIT', 'Vasavi', 'SRM']
-
-        for (let i = 1; i <= 85; i++) {
-            const ev = EVENTS[Math.floor(Math.random() * EVENTS.length)]
-            const coll = colleges[Math.floor(Math.random() * colleges.length)]
-            mockRegs.push({
-                id: i,
-                event: ev,
-                leaderName: `Participant ${i}`,
-                teamName: Math.random() > 0.6 ? `Team Alpha ${i}` : 'N/A',
-                email: `participant${i}@${coll.toLowerCase().replace(' ', '')}.edu.in`,
-                phone: `9` + Math.floor(100000000 + Math.random() * 900000000),
-                college: coll,
-                createdAt: new Date(Date.now() - Math.floor(Math.random() * 10000000000)).toISOString()
-            })
-        }
-
-        // Sort newest first
-        mockRegs.sort((a, b) => sortRegistrationDates(a.createdAt, b.createdAt))
 
         if (returnOnly) return mockRegs;
 
