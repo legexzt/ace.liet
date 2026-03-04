@@ -248,26 +248,42 @@ export default function AdminPanel({ onExit }) {
                 </div>
                 <nav className="admin__sidebar-nav">
                     {[
-                        { id: 'dashboard', label: '📊 Live Dashboard' },
-                        { id: 'registrations', label: '📝 Data & Export' },
-                        { id: 'contacts', label: '💌 Inquiries' },
+                        { id: 'dashboard', label: '📊 Live Dashboard', icon: '📊' },
+                        { id: 'registrations', label: '📝 Data & Export', icon: '📝' },
+                        { id: 'contacts', label: '💌 Inquiries', icon: '💌' },
                     ].map(tab => (
                         <button
                             key={tab.id}
                             className={`admin__sidebar-btn ${activeTab === tab.id ? 'admin__sidebar-btn--active' : ''}`}
                             onClick={() => setActiveTab(tab.id)}
+                            title={tab.label}
                         >
-                            {tab.label}
+                            <span className="admin__nav-icon">{tab.icon}</span>
+                            <span className="admin__nav-label">{tab.label.split(' ')[1]} {tab.label.split(' ')[2] || ''}</span>
                         </button>
                     ))}
                 </nav>
                 <div className="admin__sidebar-footer">
-                    <button className="admin__sidebar-btn" onClick={onExit}>🌐 Exit to Site</button>
-                    <button className="admin__sidebar-btn admin__sidebar-btn--danger" onClick={handleLogout}>🚪 Lock Portal</button>
+                    <button className="admin__sidebar-btn admin__sidebar-btn--exit" onClick={onExit}>
+                        <span className="admin__nav-icon">🌐</span>
+                        <span className="admin__nav-label">Exit to Site</span>
+                    </button>
+                    <button className="admin__sidebar-btn admin__sidebar-btn--danger" onClick={handleLogout}>
+                        <span className="admin__nav-icon">🚪</span>
+                        <span className="admin__nav-label">Lock Portal</span>
+                    </button>
                 </div>
             </aside>
 
             <main className="admin__content">
+                <div className="admin__mobile-header" style={{ display: typeof window !== 'undefined' && window.innerWidth <= 768 ? 'flex' : 'none' }}>
+                    <div className="admin__sidebar-shield" style={{ width: 30, height: 30, margin: 0, fontSize: '0.5rem' }}>ACE</div>
+                    <div style={{ display: 'flex', gap: '8px' }}>
+                        <button className="btn-secondary" style={{ padding: '6px 12px', fontSize: '0.75rem' }} onClick={onExit}>🌐 Exit</button>
+                        <button className="btn-primary" style={{ padding: '6px 12px', fontSize: '0.75rem', background: '#ff4d4f', borderColor: '#ff4d4f' }} onClick={handleLogout}>🚪 Lock</button>
+                    </div>
+                </div>
+
                 {activeTab === 'dashboard' && (
                     <div className="admin__panel">
                         <h2>Analytics Dashboard</h2>
