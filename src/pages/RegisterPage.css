@@ -1,0 +1,248 @@
+/* ==========================================================================
+   RegisterPage — Google Form Embed
+   ========================================================================== */
+
+.rp__overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: var(--bg-primary);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Floating back button */
+.rp__floating-back {
+    position: fixed;
+    top: 16px;
+    left: 16px;
+    z-index: 1100;
+    padding: 8px 18px;
+    background: rgba(13, 13, 26, 0.85);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(212, 160, 23, 0.3);
+    color: var(--gold);
+    font-size: 0.85rem;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rp__floating-back:hover {
+    background: rgba(212, 160, 23, 0.1);
+    border-color: var(--gold);
+}
+
+/* Iframe wrapper */
+.rp__iframe-wrap {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.rp__iframe-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 20px 10px 80px;
+    background: rgba(255, 255, 255, 0.03);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.rp__iframe-logo {
+    height: 28px;
+    width: auto;
+    filter: drop-shadow(0 0 6px rgba(212, 160, 23, 0.3));
+}
+
+.rp__iframe {
+    flex: 1;
+    width: 100%;
+    border: none;
+    background: white;
+}
+
+/* After-submit bar */
+.rp__after-submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 12px 20px;
+    background: rgba(212, 160, 23, 0.06);
+    border-top: 1px solid rgba(212, 160, 23, 0.15);
+    flex-shrink: 0;
+}
+
+.rp__after-submit p {
+    margin: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.rp__btn-submitted {
+    padding: 8px 20px;
+    background: var(--gold-gradient);
+    color: #0d0d0d;
+    font-weight: 700;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rp__btn-submitted:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(212, 160, 23, 0.3);
+}
+
+/* Launch Screen */
+.rp__launch-screen {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 20px;
+    gap: 16px;
+}
+
+.rp__launch-logo {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 0 20px rgba(212, 160, 23, 0.5));
+    margin-bottom: 8px;
+}
+
+.rp__launch-title {
+    font-size: 2.8rem;
+    font-weight: 900;
+    background: var(--gold-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+}
+
+.rp__launch-sub {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.rp__launch-dates {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    border: 1px solid rgba(212, 160, 23, 0.2);
+    padding: 8px 20px;
+    border-radius: 30px;
+    background: rgba(212, 160, 23, 0.05);
+    margin-bottom: 8px;
+}
+
+.rp__btn-open-form {
+    padding: 18px 40px;
+    background: var(--gold-gradient);
+    color: #0d0d0d;
+    font-weight: 800;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 8px 30px rgba(212, 160, 23, 0.3);
+}
+
+.rp__btn-open-form:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(212, 160, 23, 0.5);
+}
+
+.rp__launch-note {
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin: 0;
+}
+
+.rp__after-submit-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 8px;
+}
+
+.rp__thankyou {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 20px;
+    animation: rp-fade-in 0.4s ease;
+}
+
+@keyframes rp-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.rp__thankyou-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+}
+
+.rp__thankyou h2 {
+    font-size: 2rem;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 12px;
+}
+
+.rp__thankyou p {
+    color: var(--text-secondary);
+    font-size: 1rem;
+    max-width: 420px;
+    margin-bottom: 8px;
+    line-height: 1.6;
+}
+
+.rp__thankyou strong {
+    color: var(--gold);
+}
+
+.rp__btn-home {
+    margin-top: 28px;
+    padding: 14px 32px;
+    background: var(--gold-gradient);
+    color: #0d0d0d;
+    font-weight: 800;
+    font-size: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.rp__btn-home:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(212, 160, 23, 0.4);
+}

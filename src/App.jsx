@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
@@ -7,12 +7,11 @@ import Gallery from './components/Gallery'
 import Team from './components/Team'
 import Sponsors from './components/Sponsors'
 import Footer from './components/Footer'
-import RegisterModal from './components/RegisterModal'
 import AdminPanel from './admin/AdminPanel'
+import RegisterPage from './pages/RegisterPage'
 
 function App() {
   const [showRegister, setShowRegister] = useState(false)
-  const [selectedEvent, setSelectedEvent] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
 
   useEffect(() => {
@@ -20,13 +19,10 @@ function App() {
     checkHash()
     window.addEventListener('hashchange', checkHash)
 
-    // Scroll reveal observer
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('visible')
-          }
+          if (entry.isIntersecting) entry.target.classList.add('visible')
         })
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
@@ -39,31 +35,29 @@ function App() {
     }
   }, [isAdmin])
 
-  const openRegister = (eventName = '') => {
-    setSelectedEvent(eventName)
+  const openRegister = () => {
     setShowRegister(true)
+    window.scrollTo(0, 0)
   }
 
   if (isAdmin) {
     return <AdminPanel onExit={() => { setIsAdmin(false); window.location.hash = '' }} />
   }
 
+  if (showRegister) {
+    return <RegisterPage onBack={() => setShowRegister(false)} />
+  }
+
   return (
     <>
-      <Navbar onRegister={() => openRegister()} />
-      <Hero onRegister={() => openRegister()} />
+      <Navbar onRegister={openRegister} />
+      <Hero onRegister={openRegister} />
       <About />
       <Events onRegister={openRegister} />
       <Gallery />
       <Team />
       <Sponsors />
       <Footer />
-      {showRegister && (
-        <RegisterModal
-          event={selectedEvent}
-          onClose={() => setShowRegister(false)}
-        />
-      )}
     </>
   )
 }
