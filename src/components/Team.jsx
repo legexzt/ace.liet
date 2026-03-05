@@ -4,8 +4,6 @@ import { GraduationCap, UserCheck, BrainCircuit, Palette, Zap, Gamepad2, Phone, 
 const FACULTY = [
     { name: 'Dr. T.K. Shaik Shavali', role: 'Convenor', icon: GraduationCap },
     { name: 'Md. Asma', role: 'Co-Convenor', icon: UserCheck },
-    { name: 'N. Vibhavari', role: 'Faculty Coordinator', icon: UserCheck },
-    { name: 'Umme Ruma', role: 'Faculty Coordinator', icon: UserCheck },
     { name: 'Jagadeshwar Reddy Gogu', role: 'Faculty Coordinator', icon: UserCheck, phone: '9885252291' },
     { name: 'Mr. Ahmadoddin Siddiqui', role: 'Faculty Coordinator', icon: UserCheck, phone: '+91 90529 50069' },
 ]
