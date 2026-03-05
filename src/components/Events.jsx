@@ -17,10 +17,10 @@ const EVENTS = [
         whatsapp: 'https://wa.me/91XXXXXXXXXX' // Add your specific whatsapp link here if different per event
     },
     {
-        id: 'poster-making',
+        id: 'poster-fusion',
         icon: Palette,
         image: '/images/event-poster-wide.png',
-        title: 'Poster Making',
+        title: 'Poster Fusion - Design Battle',
         description: 'Unleash your artistic vision! Design powerful posters that communicate ideas through creativity, color, and composition. Digital & traditional both welcome.',
         category: 'Non-Technical',
         prize: '₹3,000',
@@ -30,10 +30,10 @@ const EVENTS = [
         whatsapp: 'https://wa.me/91XXXXXXXXXX'
     },
     {
-        id: 'code-in-chaos',
+        id: 'mindovercode',
         icon: Terminal,
         image: '/images/event-code-wide.png',
-        title: 'Code in Chaos',
+        title: 'MindOverCode - Logic vs Noise',
         description: 'Can you code under pressure? Debug, solve, and conquer chaotic programming challenges in a high-intensity battle of logic and speed.',
         category: 'Technical',
         prize: '₹5,000',

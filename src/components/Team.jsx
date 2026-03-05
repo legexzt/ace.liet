@@ -6,6 +6,8 @@ const FACULTY = [
     { name: 'Md. Asma', role: 'Co-Convenor', icon: UserCheck },
     { name: 'N. Vibhavari', role: 'Faculty Coordinator', icon: UserCheck },
     { name: 'Umme Ruma', role: 'Faculty Coordinator', icon: UserCheck },
+    { name: 'Jagadeshwar Reddy Gogu', role: 'Faculty Coordinator', icon: UserCheck, phone: '9885252291' },
+    { name: 'Mr. Ahmadoddin Siddiqui', role: 'Faculty Coordinator', icon: UserCheck, phone: '+91 90529 50069' },
 ]
 
 const STUDENTS = [
@@ -22,13 +24,13 @@ const EVENT_COORDINATORS = [
         faculty: ['Mr. Najeemulla Baig', 'Mr. Ryan Husain'],
     },
     {
-        event: 'Poster Making',
+        event: 'Poster Fusion - Design Battle',
         icon: Palette,
         students: ['Zohair Shahid Khan', 'Samad'],
         faculty: ['Ms. Sweta P', 'Madiha Banu'],
     },
     {
-        event: 'Code in Chaos',
+        event: 'MindOverCode - Logic vs Noise',
         icon: Zap,
         students: ['Thaizia', 'Aamina Bushra'],
         faculty: ['Ms. Mayuri Tone', 'Ms. Bhavana'],
@@ -65,6 +67,11 @@ export default function Team() {
                                 <div className="team__card-avatar"><member.icon size={28} color="#d4a017" /></div>
                                 <h4 className="team__card-name">{member.name}</h4>
                                 <p className="team__card-role">{member.role}</p>
+                                {member.phone && (
+                                    <a href={`tel:${member.phone.replace(/\s/g, '')}`} className="team__card-phone" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                                        <Phone size={14} /> {member.phone}
+                                    </a>
+                                )}
                             </div>
                         ))}
                     </div>
