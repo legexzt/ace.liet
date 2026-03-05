@@ -39,7 +39,6 @@ export default function Footer() {
                         <a href="#home">Home</a>
                         <a href="#about">About</a>
                         <a href="#events">Events</a>
-                        <a href="#timeline">Timeline</a>
                         <a href="#gallery">Gallery</a>
                         <a href="#team">Team</a>
                     </div>
@@ -56,8 +55,13 @@ export default function Footer() {
                         <h4 className="footer__subtitle">Contact Us</h4>
                         <p>Lords Institute of Engineering and Technology</p>
                         <p>Himayath Sagar, Hyderabad</p>
-                        <p>Email: example@lords.ac.in</p>
-                        <p>Phone: +91 XXXXX XXXXX</p>
+                        <p>Email: ace@lords.ac.in</p>
+                        <p style={{ marginTop: '0.5rem', fontWeight: 'bold' }}>Faculty Coordinators:</p>
+                        <p>Jagadeshwar Reddy Gogu: 9885252291</p>
+                        <p>Mr. Ahmadoddin Siddiqui: +91 90529 50069</p>
+                        <p style={{ marginTop: '0.5rem', fontWeight: 'bold' }}>Student Coordinators:</p>
+                        <p>Mohd. Rizwan: 90140 41144</p>
+                        <p>Shaik Irfan: 93906 83362</p>
                     </div>
                 </div>
 

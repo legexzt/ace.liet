@@ -31,6 +31,19 @@ export default function Hero({ onRegister }) {
 
     return (
         <section id="home" className="hero">
+            {/* Background Video */}
+            <div className="hero__bg-video-container">
+                <div className="hero__bg-video-overlay"></div>
+                <video
+                    src="/ace-logo-anim.mp4"
+                    className="hero__bg-video"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                />
+            </div>
+
             {/* Animated particles — more for density */}
             <div className="hero__particles">
                 {Array.from({ length: 30 }).map((_, i) => (
@@ -76,7 +89,11 @@ export default function Hero({ onRegister }) {
                 </div>
 
                 <div className="hero__logo-wrapper">
-                    <img src="/ace-logo.png" alt="ACE - Association of Computer Engineers" className="hero__logo-img" />
+                    <img
+                        src="/ace-logo.png"
+                        alt="ACE - Association of Computer Engineers"
+                        className="hero__logo-img"
+                    />
                 </div>
 
                 <h1 className="hero__title">

@@ -3,7 +3,6 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import About from './components/About'
 import Events from './components/Events'
-import Timeline from './components/Timeline'
 import Gallery from './components/Gallery'
 import Team from './components/Team'
 import Sponsors from './components/Sponsors'
@@ -55,7 +54,6 @@ function App() {
       <Hero onRegister={() => openRegister()} />
       <About />
       <Events onRegister={openRegister} />
-      <Timeline />
       <Gallery />
       <Team />
       <Sponsors />

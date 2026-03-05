@@ -20,7 +20,41 @@
         radial-gradient(ellipse at 50% 0%, rgba(29, 185, 84, 0.08) 0%, transparent 60%),
         radial-gradient(ellipse at 80% 50%, rgba(212, 160, 23, 0.06) 0%, transparent 50%),
         radial-gradient(ellipse at 20% 80%, rgba(29, 185, 84, 0.05) 0%, transparent 50%);
+    z-index: 1;
+    /* Above the video, below content */
+    pointer-events: none;
+}
+
+/* Background Video */
+.hero__bg-video-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     z-index: 0;
+    overflow: hidden;
+}
+
+.hero__bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    /* Make it faded as requested */
+    transform: scale(1.1);
+    /* Slightly scale up to crop edges/watermark */
+}
+
+/* Additional dark overlay to ensure text readability and fade the video */
+.hero__bg-video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(10, 10, 10, 0.7);
+    z-index: 1;
 }
 
 /* ---- Side Decorations ---- */
@@ -328,11 +362,12 @@
 }
 
 .hero__logo-img {
-    width: 350px;
+    width: 480px;
     height: auto;
     margin: 0 auto;
     display: block;
-    filter: drop-shadow(0 0 20px rgba(212, 160, 23, 0.3));
+    /* A soft rounded rectangle looks better for this kind of image logo */
+    filter: drop-shadow(0 0 25px rgba(212, 160, 23, 0.4));
     animation: shieldGlow 3s ease-in-out infinite;
 }
 
@@ -597,7 +632,7 @@
     }
 
     .hero__logo-img {
-        width: 200px;
+        width: 320px;
     }
 
     .hero__badge {

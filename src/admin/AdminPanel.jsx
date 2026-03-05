@@ -12,8 +12,8 @@ const API_BASE = (import.meta.env.VITE_API_URL || 'http://localhost:3001') + '/a
 
 const EVENTS = [
     'AI Prompt Engineering Challenge',
-    'Poster Making',
-    'Code in Chaos',
+    'Poster Fusion - Design Battle',
+    'MindOverCode - Logic vs Noise',
     'Instagram Reel Making'
 ]
 
@@ -104,6 +104,7 @@ export default function AdminPanel({ onExit }) {
                         leaderName: row['Name'] || 'Unknown',
                         teamName: row['Team Name'] || 'N/A',
                         members: row['Members'] || 'None',
+                        transactionId: row['Transaction ID'] || 'N/A',
                         email: row['Email'] || 'N/A',
                         phone: row['Phone'] || 'N/A',
                         college: row['College'] || 'N/A',
@@ -181,6 +182,8 @@ export default function AdminPanel({ onExit }) {
             'Registration ID': r.id,
             'Name': r.leaderName,
             'Team Name': r.teamName,
+            'Members': r.members,
+            'Transaction ID': r.transactionId,
             'Event': r.event,
             'College': r.college,
             'Email': r.email,
@@ -395,8 +398,10 @@ export default function AdminPanel({ onExit }) {
                                             <tr>
                                                 <th>Ref ID</th>
                                                 <th>Participant Name</th>
+                                                <th>Team / Members</th>
+                                                <th>Transaction ID</th>
                                                 {selectedEventTable === 'All Events' && <th>Event Category</th>}
-                                                <th>College</th>
+                                                <th>College / Branch</th>
                                                 <th>Contact Info</th>
                                                 <th>Date Registered</th>
                                             </tr>
@@ -407,10 +412,19 @@ export default function AdminPanel({ onExit }) {
                                                     <td><span className="admin__badge">#ACE26-{reg.id}</span></td>
                                                     <td>
                                                         <strong>{reg.leaderName}</strong>
-                                                        {reg.teamName !== 'N/A' && <div style={{ fontSize: '0.8rem', opacity: 0.7 }}>Team: {reg.teamName}</div>}
+                                                    </td>
+                                                    <td>
+                                                        {reg.teamName !== 'N/A' && <div style={{ fontWeight: '600' }}>{reg.teamName}</div>}
+                                                        <div style={{ fontSize: '0.75rem', opacity: 0.6 }}>{reg.members}</div>
+                                                    </td>
+                                                    <td>
+                                                        <span style={{ color: 'var(--gold)', fontWeight: '600' }}>{reg.transactionId}</span>
                                                     </td>
                                                     {selectedEventTable === 'All Events' && <td><span style={{ color: 'var(--gold)' }}>{reg.event}</span></td>}
-                                                    <td>{reg.college}</td>
+                                                    <td>
+                                                        <div>{reg.college}</div>
+                                                        <div style={{ fontSize: '0.75rem', opacity: 0.7 }}>{reg.branch} {reg.year && `(${reg.year} yr)`}</div>
+                                                    </td>
                                                     <td>
                                                         <div>{reg.email}</div>
                                                         <div style={{ opacity: 0.7, fontSize: '0.85rem' }}>+91 {reg.phone}</div>

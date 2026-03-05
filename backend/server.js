@@ -64,22 +64,28 @@ app.get('/api/health', (req, res) => {
 // Register for event
 app.post('/api/register', async (req, res) => {
     try {
-        const { event, teamName, leaderName, members, college, email, phone, branch, year } = req.body
+        const {
+            event, leaderName, email, phone, institutionCategory,
+            college, rollNumber, branch, year, transactionId, members
+        } = req.body
 
-        if (!event || !leaderName || !email || !phone) {
-            return res.status(400).json({ message: 'Missing required fields: event, leaderName, email, phone' })
+        if (!event || !leaderName || !email || !phone || !transactionId) {
+            return res.status(400).json({ message: 'Missing required fields: event, leaderName, email, phone, transactionId' })
         }
 
         const registration = {
             event,
-            team_name: teamName || null,
             leader_name: leaderName,
-            members: members || null,
-            college: college || null,
             email,
             phone,
+            institution_category: institutionCategory || null,
+            college: college || null,
+            roll_number: rollNumber || null,
             branch: branch || null,
             year: year || null,
+            transaction_id: transactionId || null,
+            members: members || null,
+            created_at: new Date().toISOString()
         }
 
         if (supabase) {
