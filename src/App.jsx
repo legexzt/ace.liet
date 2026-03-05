@@ -19,21 +19,30 @@ function App() {
     checkHash()
     window.addEventListener('hashchange', checkHash)
 
+    // Only observe elements once on mount
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) entry.target.classList.add('visible')
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible')
+            // Unobserve after it becomes visible to stop unnecessary calculations
+            observer.unobserve(entry.target)
+          }
         })
       },
       { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
     )
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+
+    // Use a small timeout to ensure DOM nodes are ready
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => observer.observe(el))
+    }, 100)
 
     return () => {
       window.removeEventListener('hashchange', checkHash)
       observer.disconnect()
     }
-  }, [isAdmin])
+  }, []) // Empty dependency array means this runs ONCE on mount, fixing massive scroll lag
 
   const openRegister = () => {
     setShowRegister(true)
