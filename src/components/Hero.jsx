@@ -101,7 +101,7 @@ export default function Hero({ onRegister }) {
                 </h1>
 
                 <p className="hero__subtitle">
-                    A Two Day National Level Technical & Non-Technical Fest
+                    A Three Day National Level Technical & Non-Technical Fest
                 </p>
                 <p className="hero__venue" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
                     <MapPin size={18} color="#d4a017" /> Lords Institute of Engineering & Technology
@@ -135,7 +135,7 @@ export default function Hero({ onRegister }) {
 
                 <div className="hero__dates">
                     <div className="hero__date-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                        <Calendar size={16} color="#d4a017" /> 8 & 9 April 2026
+                        <Calendar size={16} color="#d4a017" /> 8, 9 & 10 April 2026
                     </div>
                     <div className="hero__date-badge" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                         <Trophy size={16} color="#d4a017" /> Prize Pool ₹20,000+
