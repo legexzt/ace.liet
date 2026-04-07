@@ -31,6 +31,13 @@
     margin: 0 auto;
 }
 
+.team__grid--core {
+    grid-template-columns: repeat(4, 1fr);
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 30px;
+}
+
 .team__grid--events {
     grid-template-columns: repeat(2, 1fr);
     max-width: 1000px;
@@ -163,6 +170,131 @@
     color: var(--gold);
 }
 
+/* -----------------------------
+   CORE TEAM CARDS (Premium UI)
+----------------------------- */
+.core-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 24px;
+    padding: 16px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    backdrop-filter: blur(10px);
+}
+
+.core-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 24px;
+    padding: 2px;
+    background: linear-gradient(135deg, rgba(212, 160, 23, 0), rgba(212, 160, 23, 0.5));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.core-card:hover {
+    transform: translateY(-12px);
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 40px rgba(212, 160, 23, 0.15);
+}
+
+.core-card:hover::after {
+    opacity: 1;
+}
+
+.core-card__image-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    margin-bottom: 24px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.core-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    filter: brightness(0.9);
+}
+
+.core-card:hover .core-card__image {
+    transform: scale(1.1) rotate(2deg);
+    filter: brightness(1.1);
+}
+
+.core-card__content {
+    position: relative;
+    z-index: 2;
+    padding: 0 10px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.core-card__name {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    transition: color 0.3s ease;
+}
+
+.core-card:hover .core-card__name {
+    color: var(--gold);
+    text-shadow: 0 0 15px rgba(212, 160, 23, 0.4);
+}
+
+.core-card__badge {
+    display: inline-block;
+    padding: 4px 12px;
+    background: rgba(29, 185, 84, 0.1);
+    border: 1px solid rgba(29, 185, 84, 0.3);
+    color: var(--green-accent);
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+.core-card__description {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    transform: translateY(15px);
+}
+
+.core-card:hover .core-card__description {
+    max-height: 150px;
+    opacity: 1;
+    margin-top: 5px;
+    transform: translateY(0);
+}
+
+@media (max-width: 1024px) {
+    .team__grid--core {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .team__grid--faculty {
         grid-template-columns: repeat(2, 1fr);
@@ -173,6 +305,16 @@
     }
 
     .team__grid--events {
+        grid-template-columns: 1fr;
+    }
+    
+    .team__grid--core {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team__grid--core {
         grid-template-columns: 1fr;
     }
 }

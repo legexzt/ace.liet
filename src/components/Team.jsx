@@ -8,6 +8,21 @@ const FACULTY = [
     { name: 'Mr. Ahmadoddin Siddiqui', role: 'Faculty Coordinator', icon: UserCheck, phone: '+91 90529 50069' },
 ]
 
+const CORE_TEAM = [
+    { id: 1, name: 'Member 1', role: 'Core Leader', image: '/images/team/1.png', description: 'Guiding the vision and ensuring seamless execution with passion.' },
+    { id: 2, name: 'Member 2', role: 'Technical Lead', image: '/images/team/2.png', description: 'Architecting cutting-edge solutions and digital experiences.' },
+    { id: 3, name: 'Member 3', role: 'Creative Head', image: '/images/team/3.png', description: 'Pushing boundaries in design and visual storytelling.' },
+    { id: 4, name: 'Member 4', role: 'Event Manager', image: '/images/team/4.png', description: 'Orchestrating unforgettable events and smooth operations.' },
+    { id: 5, name: 'Member 5', role: 'Marketing Executive', image: '/images/team/5.png', description: 'Spreading the word and building our amazing community.' },
+    { id: 6, name: 'Member 6', role: 'Logistics Lead', image: '/images/team/6.png', description: 'Managing resources and structuring our initiatives.' },
+    { id: 7, name: 'Member 7', role: 'Sponsorship', image: '/images/team/7.png', description: 'Securing partnerships to power our ambitious projects.' },
+    { id: 8, name: 'Member 8', role: 'Public Relations', image: '/images/team/8.png', description: 'Connecting with people and maintaining transparent communication.' },
+    { id: 9, name: 'Member 9', role: 'Content Strategist', image: '/images/team/9.png', description: 'Crafting compelling narratives to engage our audience.' },
+    { id: 10, name: 'Member 10', role: 'Documentation', image: '/images/team/10.png', description: 'Capturing the journey and keeping our records intact.' },
+    { id: 11, name: 'Member 11', role: 'Social Media Lead', image: '/images/team/11.png', description: 'Driving engagement across all our digital platforms.' },
+    { id: 12, name: 'Member 12', role: 'Operations', image: '/images/team/12.png', description: 'Ensuring everything happens precisely as planned.' }
+];
+
 const STUDENTS = [
     { name: 'Md Rizwan', role: 'Student Coordinator', phone: '+91 90140 41144', icon: Users },
     { name: 'Shaik Irfan', role: 'Student Coordinator', phone: '+91 93906 83362', icon: Users },
@@ -55,6 +70,27 @@ export default function Team() {
                     <p className="section-subtitle">
                         The brilliant minds behind ACE & Sanketika 2026
                     </p>
+                </div>
+
+                <div className="team__section reveal">
+                    <h3 className="team__section-title" style={{ fontSize: '1.4rem' }}>Core Team Leaders & Members</h3>
+                    <div className="team__grid team__grid--core">
+                        {CORE_TEAM.map(member => (
+                            <div key={member.id} className="core-card">
+                                <div className="core-card__image-container">
+                                    <div className="core-card__glow"></div>
+                                    <img src={member.image} alt={member.name} className="core-card__image" />
+                                </div>
+                                <div className="core-card__content">
+                                    <h4 className="core-card__name">{member.name}</h4>
+                                    <div className="core-card__badge">{member.role}</div>
+                                    <div className="core-card__description">
+                                        <p>{member.description}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 <div className="team__section reveal">
