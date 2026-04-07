@@ -9,18 +9,18 @@ const FACULTY = [
 ]
 
 const CORE_TEAM = [
-    { id: 1, name: 'Member 1', role: 'Core Leader', image: '/images/team/1.png', description: 'Guiding the vision and ensuring seamless execution with passion.' },
-    { id: 2, name: 'Member 2', role: 'Technical Lead', image: '/images/team/2.png', description: 'Architecting cutting-edge solutions and digital experiences.' },
-    { id: 3, name: 'Member 3', role: 'Creative Head', image: '/images/team/3.png', description: 'Pushing boundaries in design and visual storytelling.' },
-    { id: 4, name: 'Member 4', role: 'Event Manager', image: '/images/team/4.png', description: 'Orchestrating unforgettable events and smooth operations.' },
-    { id: 5, name: 'Member 5', role: 'Marketing Executive', image: '/images/team/5.png', description: 'Spreading the word and building our amazing community.' },
-    { id: 6, name: 'Member 6', role: 'Logistics Lead', image: '/images/team/6.png', description: 'Managing resources and structuring our initiatives.' },
-    { id: 7, name: 'Member 7', role: 'Sponsorship', image: '/images/team/7.png', description: 'Securing partnerships to power our ambitious projects.' },
-    { id: 8, name: 'Member 8', role: 'Public Relations', image: '/images/team/8.png', description: 'Connecting with people and maintaining transparent communication.' },
-    { id: 9, name: 'Member 9', role: 'Content Strategist', image: '/images/team/9.png', description: 'Crafting compelling narratives to engage our audience.' },
-    { id: 10, name: 'Member 10', role: 'Documentation', image: '/images/team/10.png', description: 'Capturing the journey and keeping our records intact.' },
-    { id: 11, name: 'Member 11', role: 'Social Media Lead', image: '/images/team/11.png', description: 'Driving engagement across all our digital platforms.' },
-    { id: 12, name: 'Member 12', role: 'Operations', image: '/images/team/12.png', description: 'Ensuring everything happens precisely as planned.' }
+    { id: 1, name: 'Mohd Rizwan', role: 'President', image: '/images/team/1.png', description: 'Guiding the vision and ensuring seamless execution with passion.' },
+    { id: 2, name: 'Shaik Irfan', role: 'Vice President', image: '/images/team/2.png', description: 'Supporting strategy and leading operations from the front.' },
+    { id: 3, name: 'Abdul Amaan', role: 'Secretary', image: '/images/team/3.png', description: 'Managing organizational affairs and communications effectively.' },
+    { id: 4, name: 'Nouman Khan', role: 'Joint-Secretary', image: '/images/team/4.png', description: 'Assisting the core administration and bridging teams together.' },
+    { id: 5, name: 'Huzaif Hussaini', role: 'Creative Lead', image: '/images/team/5.png', description: 'Conceptualizing and pushing boundaries in visual storytelling.' },
+    { id: 6, name: 'Mahrafa Hussaini', role: 'Creative Lead', image: '/images/team/6.png', description: 'Crafting mesmerizing aesthetics and creative campaigns.' },
+    { id: 7, name: 'Mohd Jibraan', role: 'Design Lead', image: '/images/team/7.png', description: 'Architecting cutting-edge design solutions and interfaces.' },
+    { id: 8, name: 'Shaista Naaz', role: 'Design Lead', image: '/images/team/8.png', description: 'Creating visually stunning and impactful design experiences.' },
+    { id: 9, name: 'Mohammed Moosa', role: 'Event Management', image: '/images/team/9.png', description: 'Orchestrating unforgettable events and smooth operations.' },
+    { id: 10, name: 'Aamina Bushra', role: 'Marketing Lead', image: '/images/team/10.png', description: 'Spreading the word and building our amazing community.' },
+    { id: 11, name: 'Sania Mohammadi', role: 'Documentation', image: '/images/team/11.png', description: 'Capturing the journey and keeping our records intact.' },
+    { id: 12, name: 'Abdul Ahad', role: 'Photography', image: '/images/team/12.png', description: 'Capturing moments and preserving our incredible memories.' }
 ];
 
 const STUDENTS = [
